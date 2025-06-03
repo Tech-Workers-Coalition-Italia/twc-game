@@ -1,5 +1,6 @@
 extends VBoxContainer
 
+signal button1_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,5 +16,6 @@ func _process(delta: float) -> void:
 	pass
 	
 func on_press_event() -> void:
-	print("ciao mondo!")
+	print("hello world!")
+	button1_pressed.emit("a param")
 	pass
