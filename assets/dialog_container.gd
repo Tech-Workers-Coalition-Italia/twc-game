@@ -2,20 +2,27 @@ extends VBoxContainer
 
 signal button1_pressed
 
+var questions = read_questions()
+var questions_number = questions["questions"].size()
+var questions_counter = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$QuestionLabel.text = "vuoi un gelato?"
-	$ChoicesContainer/ChoiceButton1.text = "sì"
-	$ChoicesContainer/ChoiceButton2.text = "no"
-	$ChoicesContainer/ChoiceButton3.text = "non lo so"
+	for q in questions["questions"]:
+		print(q["question"]["text"])
+		
+	var question = next_question()
+	match typeof(question):
+		TYPE_DICTIONARY:
+			$QuestionLabel.text = question["question"]["text"]
+			$ChoicesContainer/ChoiceButton1.text = question["answers"][0]["text"]
+			$ChoicesContainer/ChoiceButton2.text = question["answers"][1]["text"]
+			$ChoicesContainer/ChoiceButton3.text = question["answers"][2]["text"]
 	
-	$ChoicesContainer/ChoiceButton1.pressed.connect(on_press_event)
+			$ChoicesContainer/ChoiceButton1.pressed.connect(on_press_event)
 	
 	#config.set_value("Player.Features.Stats", "hp", 100)
 	#config.save("res://assets/questions.cfg")
-	var questions = read_questions()
-	for k in questions.keys():
-		print(questions[k])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -25,6 +32,13 @@ func on_press_event() -> void:
 	print("hello world!")
 	button1_pressed.emit()
 	pass
+
+func next_question() -> Variant:
+	if questions_counter >= questions_number:
+		return "questions terminated"
+	var res = questions["questions"][questions_counter]
+	questions_counter += 1
+	return res
 
 func read_questions() -> Dictionary:
 	var file = FileAccess.open("res://questions.json", FileAccess.READ)

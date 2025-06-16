@@ -1,3 +1,41 @@
 {
-	"key": "value"
+	"questions": [
+		{
+			"question": {
+				"text": "Vuoi un gelato?"
+			},
+			"answers": [
+				{
+					"text": "Sì",
+					"bonus": {
+						"happiness": 10,
+						"stamina": 2
+					},
+					"malus": {
+						"fitness": 3
+					}
+				},
+				{
+					"text": "No",
+					"bonus": {
+						"time": 2
+					},
+					"malus": {
+						"happiness": 4,
+						"stamina": 1
+					}
+				},
+				{
+					"text": "Non lo so",
+					"bonus": {
+					},
+					"malus": {
+						"time": 1,
+						"happiness": 2,
+						"stamina": 2
+					}
+				}
+			]
+		}
+	]
 }
