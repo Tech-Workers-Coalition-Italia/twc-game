@@ -17,5 +17,5 @@ func _process(delta: float) -> void:
 	
 func on_press_event() -> void:
 	print("hello world!")
-	button1_pressed.emit("a param")
+	button1_pressed.emit()
 	pass
