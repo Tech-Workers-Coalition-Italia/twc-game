@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 	
 func on_press_event() -> void:
 	print("hello world!")
+	$ValueBar/TextureProgressBar.value += 1
 	button1_pressed.emit()
 	pass
 

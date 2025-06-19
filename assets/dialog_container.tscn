@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://damiafdyeojx1"]
+[gd_scene load_steps=3 format=3 uid="uid://damiafdyeojx1"]
 
 [ext_resource type="Script" path="res://assets/dialog_container.gd" id="1_41che"]
+[ext_resource type="PackedScene" uid="uid://0mwssira4vcn" path="res://assets/value_bar.tscn" id="2_l3uqp"]
 
 [node name="DialogContainer" type="VBoxContainer"]
 offset_left = 116.0
@@ -30,3 +31,6 @@ size_flags_vertical = 3
 [node name="ChoiceButton3" type="Button" parent="ChoicesContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="ValueBar" parent="." instance=ExtResource("2_l3uqp")]
+layout_mode = 2

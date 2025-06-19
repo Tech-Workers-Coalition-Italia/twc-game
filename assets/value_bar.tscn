@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://0mwssira4vcn"]
+
+[ext_resource type="Texture2D" uid="uid://bdb1dtux5p54i" path="res://assets/bar_texture_under.png" id="2_nhg5k"]
+[ext_resource type="Texture2D" uid="uid://bw8rmphlyg83b" path="res://assets/bar_texture.png" id="2_xap4x"]
+
+[node name="ValueBar" type="HBoxContainer"]
+offset_right = 800.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_under = ExtResource("2_nhg5k")
+texture_progress = ExtResource("2_xap4x")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 28
+text = "Happiness"
